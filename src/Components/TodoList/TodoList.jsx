@@ -1,5 +1,6 @@
-import React from 'react'
-import TodoItem from '../TodoItem/TodoItem.jsx'
+import React from 'react';
+import TodoItem from '../TodoItem/TodoItem.jsx';
+
 export default function TodoList({ todoList }) {
 
   return (
