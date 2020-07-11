@@ -1,8 +1,8 @@
-import React, { useContext } from 'react'
+import React, { useContext } from 'react';
 import Context from '../../Context/context.js';
 
 export default function TodoItem({ id, title, completed }) {
-  const { dispatch } = useContext(Context)
+  const { dispatch } = useContext(Context);
 
   const classList = (completed) ? 'throuth' : ''
   return (

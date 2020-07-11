@@ -1,23 +1,25 @@
-import React, { useState, useEffect, useReducer } from 'react';
+import React, { useState, useEffect, useReducer} from 'react';
 import './App.css';
 import TodoList from './Components/TodoList/TodoList';
-import Context from './Context/context.js';
-import reducer from './reducer.js';
+// import Context from './Context/context.js';
+// import reducer from './reducers/todo.js';
+// import Redux from 'redux';
+// const  store = Redux.createStore();
+import store from './redux/store.js'
 
 function App() {
   
-  const preloaded = JSON.parse(localStorage.getItem('todos'));
-
-  const [state, dispatch] = useReducer(reducer, preloaded)
-  const [todoTitle, setTodoTitle] = useState('')
+  // const preloaded = JSON.parse(localStorage.getItem('todos'));
+  // const [state, dispatch] = useReducer(reducer, preloaded);
+  const [todoTitle, setTodoTitle] = useState('');
   
-  useEffect(() => {
-    localStorage.setItem('todos', JSON.stringify(state))
-  }, [state])
+  // useEffect(() => {
+  //   localStorage.setItem('todos', JSON.stringify(store.getState()));
+  // }, [state])
 
   const addTodo = (e) => {
     if (e.key === 'Enter') {
-      dispatch({
+      store.dispatch({
         type: 'add',
         payload: todoTitle
       })
@@ -26,10 +28,9 @@ function App() {
   }
 
   return (
-    <Context.Provider value={{
-      // ...state,
-      dispatch
-    }}>
+    // <Context.Provider value={{
+    //   dispatch
+    // }}>
       <div className="App">
         <div>
           <input
@@ -42,10 +43,10 @@ function App() {
           />
         </div>
         <div>
-          <TodoList todoList={state} />
+          <TodoList todoList={store.getState()} />
         </div>
       </div>
-    </Context.Provider>
+    // </Context.Provider>
   );
 }
 
