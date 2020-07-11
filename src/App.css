@@ -32,7 +32,37 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
+}
+
+input {
+  padding: 10px;
+  margin: 10px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  min-width: 200px;
+  padding: 10px;
+  background: lightgrey;
+  display: flex;
+  margin: 5px;
+  justify-content: space-between;
+}
+
+.throuth {
+  text-decoration: line-through;
+}
+
+.delete {
+  color: red;
+  
 }
